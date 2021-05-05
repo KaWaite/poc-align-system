@@ -1,0 +1,265 @@
+{
+    "layout": {
+        "outer": {
+            "topLeft": {
+                "widgets": [
+                    "2",
+                    "5",
+                    "7"
+                ],
+                "align": "start"
+            },
+            "topCenter": {
+                "widgets": [
+                    "1",
+                    "3"
+                ],
+                "align": "start"
+            },
+            "topRight": {
+                "widgets": [
+                    "6"
+                ],
+                "align": "end"
+            },
+            "middleLeft": {
+                "widgets": [
+                    "3",
+                    "6"
+                ]
+            },
+            "middleRight": {
+                "widgets": [
+                    "3"
+                ]
+            },
+            "bottomCenter": {
+                "widgets": [
+                    "10"
+                ]
+            },
+            "bottomLeft": {
+                "widgets": [
+                    "9"
+                ]
+            },
+            "bottomRight": {
+                "widgets": [
+                    "8"
+                ]
+            }
+        },
+        "inner": {
+            "topCenter": {
+                "widgets": [
+                    "11"
+                ]
+            },
+            "topLeft": {
+                "widgets": [
+                    "11"
+                ]
+            },
+            "topRight": {
+                "widgets": [
+                    "11"
+                ]
+            },
+            "leftMiddle": {
+                "widgets": [
+                    "11"
+                ]
+            },
+            "rightMiddle": {
+                "widgets": [
+                    "11"
+                ]
+            },
+            "bottomCenter": {
+                "widgets": [
+                    "11"
+                ]
+            },
+            "bottomLeft": {
+                "widgets": [
+                    "11"
+                ]
+            },
+            "bottomRight": {
+                "widgets": [
+                    "11"
+                ]
+            }
+        }
+    },
+    "plugins": [
+        {
+            "id": "1",
+            "name": "plugin1",
+            "minHeight": 129,
+            "maxHeight": 100,
+            "minWidth": 420,
+            "maxWidth": 140
+        },
+        {
+            "id": "2",
+            "name": "plugin2",
+            "minHeight": 240,
+            "maxHeight": 100,
+            "minWidth": 300,
+            "maxWidth": 220
+        },
+        {
+            "id": "3",
+            "name": "plugin3",
+            "minHeight": 14,
+            "maxHeight": 100,
+            "minWidth": 50,
+            "maxWidth": 80
+        },
+        {
+            "id": "4",
+            "name": "plugin4",
+            "minHeight": 40,
+            "maxHeight": 100,
+            "minWidth": 20,
+            "maxWidth": 50
+        },
+        {
+            "id": "5",
+            "name": "plugin5",
+            "minHeight": 10,
+            "maxHeight": 100,
+            "minWidth": 50,
+            "maxWidth": 100
+        },
+        {
+            "id": "6",
+            "name": "plugin6",
+            "minHeight": 45,
+            "maxHeight": 100,
+            "minWidth": 180,
+            "maxWidth": 190
+        },
+        {
+            "id": "7",
+            "name": "plugin7",
+            "minHeight": 34,
+            "maxHeight": 100,
+            "minWidth": 67,
+            "maxWidth": 115
+        },
+        {
+            "id": "8",
+            "name": "plugin8",
+            "minHeight": 99,
+            "maxHeight": 100,
+            "minWidth": 99,
+            "maxWidth": 115
+        },
+        {
+            "id": "9",
+            "name": "plugin9",
+            "minHeight": 120,
+            "maxHeight": 160,
+            "minWidth": 170,
+            "maxWidth": 215
+        },
+        {
+            "id": "10",
+            "name": "plugin10",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "11",
+            "name": "plugin11",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "12",
+            "name": "plugin12",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "13",
+            "name": "plugin13",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "14",
+            "name": "plugin14",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "15",
+            "name": "plugin15",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "16",
+            "name": "plugin16",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "17",
+            "name": "plugin17",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "18",
+            "name": "plugin18",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "19",
+            "name": "plugin19",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "20",
+            "name": "plugin20",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        },
+        {
+            "id": "10",
+            "name": "plugin10",
+            "minHeight": 20,
+            "maxHeight": 80,
+            "minWidth": 60,
+            "maxWidth": 115
+        }
+    ]
+}
