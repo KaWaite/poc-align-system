@@ -26,17 +26,31 @@ const GridWrapper: React.FC<Props> = () => {
                     )
                     )}
                 </GridArea>
-                <GridArea horizontal>
-                    {gridItems?.topCenter?.map(p => (
-                        <Item
-                            key={p?.id}
-                            minHeight={p?.minHeight}
-                            maxHeight={p?.maxHeight}
-                            minWidth={p?.minWidth}
-                            maxWidth={p?.maxWidth}
-                        />
-                    )
-                    )}
+                <GridArea horizontal hasInner>
+                    <GridAreaItem>
+                        {gridItems?.topCenter?.map(p => (
+                            <Item
+                                key={p?.id}
+                                minHeight={p?.minHeight}
+                                maxHeight={p?.maxHeight}
+                                minWidth={p?.minWidth}
+                                maxWidth={p?.maxWidth}
+                            />
+                        )
+                        )}
+                    </GridAreaItem>
+                    <GridAreaItem>
+                        {gridItems?.topCenterInner?.map(p => (
+                            <Item
+                                key={p?.id}
+                                minHeight={p?.minHeight}
+                                maxHeight={p?.maxHeight}
+                                minWidth={p?.minWidth}
+                                maxWidth={p?.maxWidth}
+                            />
+                        )
+                        )}
+                    </GridAreaItem>
                 </GridArea>
                 <GridArea vertical right>
                     {gridItems?.topRight?.map(p => (
@@ -55,16 +69,30 @@ const GridWrapper: React.FC<Props> = () => {
             {/* Middle */}
             <GridSection middle>
                 <GridArea vertical>
-                    {gridItems?.middleLeft?.map(p => (
-                        <Item
-                            key={p?.id}
-                            minHeight={p?.minHeight}
-                            maxHeight={p?.maxHeight}
-                            minWidth={p?.minWidth}
-                            maxWidth={p?.maxWidth}
-                        />
-                    )
-                    )}
+                    <GridAreaItem vertical>
+                        {gridItems?.middleLeft?.map(p => (
+                            <Item
+                                key={p?.id}
+                                minHeight={p?.minHeight}
+                                maxHeight={p?.maxHeight}
+                                minWidth={p?.minWidth}
+                                maxWidth={p?.maxWidth}
+                            />
+                        )
+                        )}
+                    </GridAreaItem>
+                    <GridAreaItem vertical>
+                        {gridItems?.middleLeft?.map(p => (
+                            <Item
+                                key={p?.id}
+                                minHeight={p?.minHeight}
+                                maxHeight={p?.maxHeight}
+                                minWidth={p?.minWidth}
+                                maxWidth={p?.maxWidth}
+                            />
+                        )
+                        )}
+                    </GridAreaItem>
                 </GridArea>
                 <GridArea vertical right>
                     {gridItems?.middleRight?.map(p => (
@@ -137,4 +165,11 @@ const GridSection = styled.div<{ middle?: boolean, bottom?: boolean }>`
   align-items: ${({ middle, bottom }) => middle ? "middle" : bottom ? "flex-end" : "start"};
   justify-content: space-between;
   padding:10px;
+  `;
+
+const GridAreaItem = styled.div<{ middle?: boolean, bottom?: boolean, vertical?: boolean }>`
+  display: flex;
+  align-items: ${({ middle, bottom }) => middle ? "middle" : bottom ? "flex-end" : "start"};
+  justify-content: space-between;
+  flex-direction: ${({ vertical }) => vertical ? "column" : "row"};
   `;

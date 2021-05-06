@@ -105,6 +105,25 @@ export default () => {
         const bottomRight = layout.outer?.bottomRight?.widgets?.map(
             w => plugins.find(p => w === p.id));
 
+        const topLeftInner = layout.inner?.topLeft?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+        const topCenterInner = layout.inner?.topCenter?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+        const topRightInner = layout.inner?.topRight?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+
+        const middleLeftInner = layout.inner?.middleLeft?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+        const middleRightInner = layout.inner?.middleRight?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+
+        const bottomLeftInner = layout.inner?.bottomLeft?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+        const bottomCenterInner = layout.inner?.bottomCenter?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+        const bottomRightInner = layout.inner?.bottomRight?.widgets?.map(
+            w => plugins.find(p => w === p.id));
+
         return {
             topLeft,
             topCenter,
@@ -113,7 +132,15 @@ export default () => {
             middleRight,
             bottomLeft,
             bottomCenter,
-            bottomRight
+            bottomRight,
+            topLeftInner,
+            topCenterInner,
+            topRightInner,
+            middleLeftInner,
+            middleRightInner,
+            bottomLeftInner,
+            bottomCenterInner,
+            bottomRightInner,
         }
     };
 
