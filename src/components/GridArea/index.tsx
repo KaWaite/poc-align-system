@@ -4,28 +4,25 @@ import styled from "styled-components";
 export type Props = {
     className?: string;
     vertical?: boolean;
-    horizontal?: boolean;
-    right?: boolean;
-    bottom?: boolean;
-    hasInner?: boolean;
+    middle?: boolean;
+    end?: boolean;
+    reverse?: boolean;
 }
 
 const GridArea: React.FC<Props> = ({
     className,
     vertical,
-    horizontal,
-    right,
-    bottom,
-    hasInner,
+    middle,
+    end,
+    reverse,
     children
 }) => (
     <Wrapper
         className={className}
         vertical={vertical}
-        horizontal={horizontal}
-        right={right}
-        bottom={bottom}
-        hasInner={hasInner}
+        middle={middle}
+        end={end}
+        reverse={reverse}
     >
         {children}
     </Wrapper>
@@ -33,17 +30,16 @@ const GridArea: React.FC<Props> = ({
 
 export default GridArea;
 
-const Wrapper = styled.div<{ vertical?: boolean, horizontal?: boolean, right?: boolean; bottom?: boolean; hasInner?: boolean }>`
+const Wrapper = styled.div<{ vertical?: boolean, middle?: boolean, end?: boolean, reverse?: boolean }>`
     // min-width:20px; // could add a editor mode prop that add min-width
     min-width: inherit;
     min-height:20px; // could add a editor mode prop that add min-height
-    // margin: 10px;
     border: 1px solid red;
     display: flex;
     flex: 1;
-    ${({ horizontal }) => horizontal && "flex-grow: 0;"}
+    ${({ middle }) => middle && "flex-grow: 0;"}
     // flex-wrap: wrap;
-    align-items: ${({ right, bottom, hasInner }) => right || bottom ? "flex-end" : hasInner ? "center" : "start"};
+    align-items: ${({ end, middle }) => end ? "flex-end" : middle ? "center" : "start"};
     justify-content: center;
-    flex-direction: ${({ vertical, hasInner }) => vertical || hasInner ? "column" : "row"}
+    flex-direction: ${({ vertical, reverse }) => vertical ? reverse ? "column-reverse" : "column" : reverse ? "row-reverse" : "row"}
 `;

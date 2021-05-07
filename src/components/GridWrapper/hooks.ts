@@ -105,6 +105,7 @@ export default () => {
         const bottomRight = layout.outer?.bottomRight?.widgets?.map(
             w => plugins.find(p => w === p.id));
 
+        // Inner
         const topLeftInner = layout.inner?.topLeft?.widgets?.map(
             w => plugins.find(p => w === p.id));
         const topCenterInner = layout.inner?.topCenter?.widgets?.map(
@@ -144,9 +145,5 @@ export default () => {
         }
     };
 
-    const gridItems = filterGridItems(mockdata.plugins, mockdata.layout);
-
-    return {
-        gridItems
-    }
+    return { gridItems: filterGridItems(mockdata.plugins, mockdata.layout) }
 }
