@@ -25,6 +25,6 @@ const ItemComponent = styled.div<{ dimensions: Props }>`
     max-max: ${({ dimensions }) => dimensions.maxHeight}px;
     // margin-bottom: 10px;
     border: 1px solid green;
-    background: yellow;
-    color: black;
+    background: #3B3CD0;
+    color: white;
 `;

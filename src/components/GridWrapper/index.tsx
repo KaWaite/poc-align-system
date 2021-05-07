@@ -68,7 +68,7 @@ const GridWrapper: React.FC<Props> = () => {
 
             {/* Middle */}
             <GridSection middle>
-                <GridArea vertical>
+                <GridArea>
                     <GridAreaItem vertical>
                         {gridItems?.middleLeft?.map(p => (
                             <Item
@@ -154,6 +154,7 @@ const GridWrapper: React.FC<Props> = () => {
 export default GridWrapper;
 
 const GlobalWrapper = styled.div`
+    background: #171618;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -164,7 +165,10 @@ const GridSection = styled.div<{ middle?: boolean, bottom?: boolean }>`
   display: flex;
   align-items: ${({ middle, bottom }) => middle ? "middle" : bottom ? "flex-end" : "start"};
   justify-content: space-between;
+  flex: 1;
+  ${({ middle }) => middle && "flex-grow: 0;"}
   padding:10px;
+  border: 1px solid white;
   `;
 
 const GridAreaItem = styled.div<{ middle?: boolean, bottom?: boolean, vertical?: boolean }>`
@@ -172,4 +176,5 @@ const GridAreaItem = styled.div<{ middle?: boolean, bottom?: boolean, vertical?:
   align-items: ${({ middle, bottom }) => middle ? "middle" : bottom ? "flex-end" : "start"};
   justify-content: space-between;
   flex-direction: ${({ vertical }) => vertical ? "column" : "row"};
+  border: 1px solid orange;
   `;

@@ -38,11 +38,11 @@ const Wrapper = styled.div<{ vertical?: boolean, horizontal?: boolean, right?: b
     min-width: inherit;
     min-height:20px; // could add a editor mode prop that add min-height
     // margin: 10px;
-    ${({ right, vertical }) => right && vertical ? "margin-left: auto;" : "margin-right: auto;"}
     border: 1px solid red;
     display: flex;
     flex: 1;
-    flex-wrap: wrap;
+    ${({ horizontal }) => horizontal && "flex-grow: 0;"}
+    // flex-wrap: wrap;
     align-items: ${({ right, bottom, hasInner }) => right || bottom ? "flex-end" : hasInner ? "center" : "start"};
     justify-content: center;
     flex-direction: ${({ vertical, hasInner }) => vertical || hasInner ? "column" : "row"}
