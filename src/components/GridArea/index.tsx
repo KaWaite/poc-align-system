@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export type Props = {
     className?: string;
-    vertical?: boolean;
+    horizontal?: boolean;
     middle?: boolean;
     end?: boolean;
     reverse?: boolean;
@@ -11,7 +11,7 @@ export type Props = {
 
 const GridArea: React.FC<Props> = ({
     className,
-    vertical,
+    horizontal,
     middle,
     end,
     reverse,
@@ -19,7 +19,7 @@ const GridArea: React.FC<Props> = ({
 }) => (
     <Wrapper
         className={className}
-        vertical={vertical}
+        horizontal={horizontal}
         middle={middle}
         end={end}
         reverse={reverse}
@@ -30,16 +30,15 @@ const GridArea: React.FC<Props> = ({
 
 export default GridArea;
 
-const Wrapper = styled.div<{ vertical?: boolean, middle?: boolean, end?: boolean, reverse?: boolean }>`
-    // min-width:20px; // could add a editor mode prop that add min-width
-    min-width: inherit;
-    min-height:20px; // could add a editor mode prop that add min-height
+const Wrapper = styled.div<{ horizontal?: boolean, middle?: boolean, end?: boolean, reverse?: boolean }>`
+    width: 100%;
+    min-height: inherit;
+    // min-height:20px; // could add a editor mode prop that add min-height
     border: 1px solid red;
     display: flex;
     flex: 1;
     ${({ middle }) => middle && "flex-grow: 0;"}
     // flex-wrap: wrap;
-    align-items: ${({ end, middle }) => end ? "flex-end" : middle ? "center" : "start"};
-    justify-content: center;
-    flex-direction: ${({ vertical, reverse }) => vertical ? reverse ? "column-reverse" : "column" : reverse ? "row-reverse" : "row"}
+    justify-content: ${({ end, middle }) => end ? "end" : middle ? "center" : "start"};
+    flex-direction: ${({ horizontal, reverse }) => horizontal ? reverse ? "row-reverse" : "row" : reverse ? "column-reverse" : "column"}
 `;

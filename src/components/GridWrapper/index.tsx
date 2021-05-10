@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import GridArea from "../GridArea";
-import Item from "../Item";
+import GridSection from "../GridSection";
+// import GridAreaItem from "../GridAreaItem";
+import GridItem from "../GridItem";
 import useHooks from "./hooks";
+
+import background from "../../images/background.jpeg";
 
 export type Props = {}
 
@@ -10,84 +14,32 @@ const GridWrapper: React.FC<Props> = () => {
     const { gridItems } = useHooks();
 
     return (
-        <GlobalWrapper>
-
-            {/* Top */}
+        <GlobalWrapper bg={background}>
+            {/* Left */}
             <GridSection>
-                <GridArea vertical>
-                    {gridItems?.topLeft?.map(p => (
-                        <Item
+                <GridArea>
+                    {gridItems?.leftTop?.map(p => (
+                        <GridItem
                             key={p?.id}
-                            minHeight={p?.minHeight}
-                            maxHeight={p?.maxHeight}
-                            minWidth={p?.minWidth}
-                            maxWidth={p?.maxWidth}
+                            plugin={p}
                         />
                     )
                     )}
                 </GridArea>
-                <GridArea middle vertical>
-                    {/* Middle Outer */}
-                    <GridAreaItem>
-                        {gridItems?.topCenter?.map(p => (
-                            <Item
-                                key={p?.id}
-                                minHeight={p?.minHeight}
-                                maxHeight={p?.maxHeight}
-                                minWidth={p?.minWidth}
-                                maxWidth={p?.maxWidth}
-                            />
-                        )
-                        )}
-                    </GridAreaItem>
-                    {/* Middle Inner */}
-                    <GridAreaItem>
-                        <GridAreaItem>
-                            {gridItems?.topLeftInner?.map(p => (
-                                <Item
-                                    key={p?.id}
-                                    minHeight={p?.minHeight}
-                                    maxHeight={p?.maxHeight}
-                                    minWidth={p?.minWidth}
-                                    maxWidth={p?.maxWidth}
-                                />
-                            )
-                            )}
-                        </GridAreaItem>
-                        <GridAreaItem middle>
-                            {gridItems?.topCenterInner?.map(p => (
-                                <Item
-                                    key={p?.id}
-                                    minHeight={p?.minHeight}
-                                    maxHeight={p?.maxHeight}
-                                    minWidth={p?.minWidth}
-                                    maxWidth={p?.maxWidth}
-                                />
-                            )
-                            )}
-                        </GridAreaItem>
-                        <GridAreaItem end>
-                            {gridItems?.topRightInner?.map(p => (
-                                <Item
-                                    key={p?.id}
-                                    minHeight={p?.minHeight}
-                                    maxHeight={p?.maxHeight}
-                                    minWidth={p?.minWidth}
-                                    maxWidth={p?.maxWidth}
-                                />
-                            )
-                            )}
-                        </GridAreaItem>
-                    </GridAreaItem>
-                </GridArea>
-                <GridArea vertical end>
-                    {gridItems?.topRight?.map(p => (
-                        <Item
+                <GridArea middle>
+                    {gridItems?.leftCenter?.map(p => (
+                        <GridItem
                             key={p?.id}
-                            minHeight={p?.minHeight}
-                            maxHeight={p?.maxHeight}
-                            minWidth={p?.minWidth}
-                            maxWidth={p?.maxWidth}
+                            plugin={p}
+                        />
+                    )
+                    )}
+                </GridArea>
+                <GridArea reverse end>
+                    {gridItems?.leftBottom?.map(p => (
+                        <GridItem
+                            key={p?.id}
+                            plugin={p}
                         />
                     )
                     )}
@@ -97,134 +49,50 @@ const GridWrapper: React.FC<Props> = () => {
             {/* Middle */}
             <GridSection middle>
                 <GridArea middle>
-                    <GridAreaItem vertical>
-                        {gridItems?.middleLeft?.map(p => (
-                            <Item
-                                key={p?.id}
-                                minHeight={p?.minHeight}
-                                maxHeight={p?.maxHeight}
-                                minWidth={p?.minWidth}
-                                maxWidth={p?.maxWidth}
-                            />
-                        )
-                        )}
-                    </GridAreaItem>
-                    <GridAreaItem vertical>
-                        {gridItems?.middleLeftInner?.map(p => (
-                            <Item
-                                key={p?.id}
-                                minHeight={p?.minHeight}
-                                maxHeight={p?.maxHeight}
-                                minWidth={p?.minWidth}
-                                maxWidth={p?.maxWidth}
-                            />
-                        )
-                        )}
-                    </GridAreaItem>
-                </GridArea>
-                <GridArea middle reverse>
-                    <GridAreaItem vertical>
-                        {gridItems?.middleRight?.map(p => (
-                            <Item
-                                key={p?.id}
-                                minHeight={p?.minHeight}
-                                maxHeight={p?.maxHeight}
-                                minWidth={p?.minWidth}
-                                maxWidth={p?.maxWidth}
-                            />
-                        )
-                        )}
-                    </GridAreaItem>
-                    <GridAreaItem vertical>
-                        {gridItems?.middleRightInner?.map(p => (
-                            <Item
-                                key={p?.id}
-                                minHeight={p?.minHeight}
-                                maxHeight={p?.maxHeight}
-                                minWidth={p?.minWidth}
-                                maxWidth={p?.maxWidth}
-                            />
-                        )
-                        )}
-                    </GridAreaItem>
-                </GridArea>
-            </GridSection>
-
-            {/* Bottom */}
-            <GridSection bottom>
-                <GridArea vertical reverse>
-                    {gridItems?.bottomLeft?.map(p => (
-                        <Item
+                    {gridItems?.middleTop?.map(p => (
+                        <GridItem
                             key={p?.id}
-                            minHeight={p?.minHeight}
-                            maxHeight={p?.maxHeight}
-                            minWidth={p?.minWidth}
-                            maxWidth={p?.maxWidth}
+                            plugin={p}
                         />
                     )
                     )}
                 </GridArea>
-                <GridArea middle vertical reverse>
-                    <GridAreaItem middle>
-                        {gridItems?.bottomCenter?.map(p => (
-                            <Item
-                                key={p?.id}
-                                minHeight={p?.minHeight}
-                                maxHeight={p?.maxHeight}
-                                minWidth={p?.minWidth}
-                                maxWidth={p?.maxWidth}
-                            />
-                        )
-                        )}
-                    </GridAreaItem>
-                    {/* Middle Inner */}
-                    <GridAreaItem>
-                        <GridAreaItem>
-                            {gridItems?.topLeftInner?.map(p => (
-                                <Item
-                                    key={p?.id}
-                                    minHeight={p?.minHeight}
-                                    maxHeight={p?.maxHeight}
-                                    minWidth={p?.minWidth}
-                                    maxWidth={p?.maxWidth}
-                                />
-                            )
-                            )}
-                        </GridAreaItem>
-                        <GridAreaItem middle>
-                            {gridItems?.topCenterInner?.map(p => (
-                                <Item
-                                    key={p?.id}
-                                    minHeight={p?.minHeight}
-                                    maxHeight={p?.maxHeight}
-                                    minWidth={p?.minWidth}
-                                    maxWidth={p?.maxWidth}
-                                />
-                            )
-                            )}
-                        </GridAreaItem>
-                        <GridAreaItem end>
-                            {gridItems?.topRightInner?.map(p => (
-                                <Item
-                                    key={p?.id}
-                                    minHeight={p?.minHeight}
-                                    maxHeight={p?.maxHeight}
-                                    minWidth={p?.minWidth}
-                                    maxWidth={p?.maxWidth}
-                                />
-                            )
-                            )}
-                        </GridAreaItem>
-                    </GridAreaItem>
-                </GridArea>
-                <GridArea vertical end>
-                    {gridItems?.bottomRight?.map(p => (
-                        <Item
+                <GridArea middle reverse>
+                    {gridItems?.middleBottom?.map(p => (
+                        <GridItem
                             key={p?.id}
-                            minHeight={p?.minHeight}
-                            maxHeight={p?.maxHeight}
-                            minWidth={p?.minWidth}
-                            maxWidth={p?.maxWidth}
+                            plugin={p}
+                        />
+                    )
+                    )}
+                </GridArea>
+            </GridSection>
+
+            {/* Right */}
+            <GridSection bottom>
+                <GridArea>
+                    {gridItems?.rightTop?.map(p => (
+                        <GridItem
+                            key={p?.id}
+                            plugin={p}
+                        />
+                    )
+                    )}
+                </GridArea>
+                <GridArea middle>
+                    {gridItems?.rightCenter?.map(p => (
+                        <GridItem
+                            key={p?.id}
+                            plugin={p}
+                        />
+                    )
+                    )}
+                </GridArea>
+                <GridArea reverse end>
+                    {gridItems?.rightBottom?.map(p => (
+                        <GridItem
+                            key={p?.id}
+                            plugin={p}
                         />
                     )
                     )}
@@ -236,29 +104,12 @@ const GridWrapper: React.FC<Props> = () => {
 
 export default GridWrapper;
 
-const GlobalWrapper = styled.div`
+const GlobalWrapper = styled.div<{ bg?: string }>`
     background: #171618;
+    background-image: ${({ bg }) => `url(${bg})`};
     height: 100%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-`;
-
-const GridSection = styled.div<{ middle?: boolean, bottom?: boolean }>`
-  display: flex;
-  align-items: ${({ middle, bottom }) => middle ? "middle" : bottom ? "flex-end" : "start"};
-  justify-content: space-between;
-  flex: 1;
-  ${({ middle }) => middle && "flex-grow: 0;"}
-  padding:10px;
-  border: 1px solid white;
-  `;
-
-const GridAreaItem = styled.div<{ middle?: boolean, bottom?: boolean, vertical?: boolean, end?: boolean }>`
-  display: flex;
-  align-items: ${({ middle, bottom }) => middle ? "middle" : bottom ? "flex-end" : "start"};
-  justify-content: ${({ middle, end }) => middle ? "center" : end ? "flex-end" : "flex-start"};
-  width: 100%;
-  flex-direction: ${({ vertical }) => vertical ? "column" : "row"};
-  border: 1px solid orange;
-  `;
+    `;

@@ -7,143 +7,91 @@ export type Plugin = {
     maxHeight?: number;
     minWidth?: number;
     maxWidth?: number;
+    expanded?: boolean;
 };
 
 export type PluginData = Plugin[];
 
 export type LayoutData = {
-    outer?: {
-        topCenter?: {
+    left?: {
+        top?: {
             widgets?: string[];
             align?: string; // "start" | "end" | "centered" | "expanded";
         },
-        topLeft?: {
+        center?: {
             widgets?: string[];
             align?: string; // "start" | "end" | "centered" | "expanded";
         },
-        topRight?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        middleLeft?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        middleRight?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottomCenter?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottomLeft?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottomRight?: {
+        bottom?: {
             widgets?: string[];
             align?: string; // "start" | "end" | "centered" | "expanded";
         }
     },
-    inner?: {
-        topCenter?: {
+    middle?: {
+        top?: {
             widgets?: string[];
             align?: string; // "start" | "end" | "centered" | "expanded";
         },
-        topLeft?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        topRight?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        middleLeft?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        middleRight?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottomCenter?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottomLeft?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottomRight?: {
+        bottom?: {
             widgets?: string[];
             align?: string; // "start" | "end" | "centered" | "expanded";
         }
-    }
+    },
+    right?: {
+        top?: {
+            widgets?: string[];
+            align?: string; // "start" | "end" | "centered" | "expanded";
+        },
+        center?: {
+            widgets?: string[];
+            align?: string; // "start" | "end" | "centered" | "expanded";
+        },
+        bottom?: {
+            widgets?: string[];
+            align?: string; // "start" | "end" | "centered" | "expanded";
+        }
+    },
+
 };
 
 export default () => {
+
     const filterGridItems = (plugins: PluginData, layout: LayoutData) => {
         if (!plugins || !layout) return {};
 
-        const topLeft = layout.outer?.topLeft?.widgets?.map(
+        const leftTop = layout.left?.top?.widgets?.map(
             w => plugins.find(p => w === p.id));
-        const topCenter = layout.outer?.topCenter?.widgets?.map(
+        const leftCenter = layout.left?.center?.widgets?.map(
             w => plugins.find(p => w === p.id));
-        const topRight = layout.outer?.topRight?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-
-        const middleLeft = layout.outer?.middleLeft?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const middleRight = layout.outer?.middleRight?.widgets?.map(
+        const leftBottom = layout.left?.bottom?.widgets?.map(
             w => plugins.find(p => w === p.id));
 
-        const bottomLeft = layout.outer?.bottomLeft?.widgets?.map(
+        const middleTop = layout.middle?.top?.widgets?.map(
             w => plugins.find(p => w === p.id));
-        const bottomCenter = layout.outer?.bottomCenter?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const bottomRight = layout.outer?.bottomRight?.widgets?.map(
+        const middleBottom = layout.middle?.bottom?.widgets?.map(
             w => plugins.find(p => w === p.id));
 
-        // Inner
-        const topLeftInner = layout.inner?.topLeft?.widgets?.map(
+        const rightTop = layout.right?.top?.widgets?.map(
             w => plugins.find(p => w === p.id));
-        const topCenterInner = layout.inner?.topCenter?.widgets?.map(
+        const rightCenter = layout.right?.center?.widgets?.map(
             w => plugins.find(p => w === p.id));
-        const topRightInner = layout.inner?.topRight?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-
-        const middleLeftInner = layout.inner?.middleLeft?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const middleRightInner = layout.inner?.middleRight?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-
-        const bottomLeftInner = layout.inner?.bottomLeft?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const bottomCenterInner = layout.inner?.bottomCenter?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const bottomRightInner = layout.inner?.bottomRight?.widgets?.map(
+        const rightBottom = layout.right?.bottom?.widgets?.map(
             w => plugins.find(p => w === p.id));
 
         return {
-            topLeft,
-            topCenter,
-            topRight,
-            middleLeft,
-            middleRight,
-            bottomLeft,
-            bottomCenter,
-            bottomRight,
-            topLeftInner,
-            topCenterInner,
-            topRightInner,
-            middleLeftInner,
-            middleRightInner,
-            bottomLeftInner,
-            bottomCenterInner,
-            bottomRightInner,
+            leftTop,
+            leftCenter,
+            leftBottom,
+            middleTop,
+            middleBottom,
+            rightTop,
+            rightCenter,
+            rightBottom,
         }
+
     };
 
-    return { gridItems: filterGridItems(mockdata.plugins, mockdata.layout) }
+    const gridItems = filterGridItems(mockdata.plugins, mockdata.layout);
+
+    return { gridItems }
 }
