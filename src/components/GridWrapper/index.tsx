@@ -12,69 +12,54 @@ export type Props = {}
 
 const GridWrapper: React.FC<Props> = () => {
     const { gridItems } = useHooks();
-
+    console.log(gridItems)
     return (
         <GlobalWrapper bg={background}>
             {/* Left */}
             <GridSection>
-                <GridArea>
-                    {gridItems?.leftTop?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            plugin={p}
-                        />
-                    )
-                    )}
-                </GridArea>
-                <GridArea middle>
-                    {gridItems?.leftCenter?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            plugin={p}
-                        />
-                    )
-                    )}
-                </GridArea>
-                <GridArea reverse end>
-                    {gridItems?.leftBottom?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            plugin={p}
-                        />
-                    )
-                    )}
-                </GridArea>
+                {gridItems?.left?.map(item => (
+                    item.map(i => (
+                        <GridArea key={i.position} left position={i.position}>
+                            {i.widgets.map(w => (
+                                <GridItem key={w.id} widget={w} />
+                            ))}
+                        </GridArea>
+                    ))
+
+                ))}
             </GridSection>
 
             {/* Middle */}
             <GridSection middle>
-                <GridArea middle>
-                    {gridItems?.middleTop?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            plugin={p}
-                        />
-                    )
-                    )}
-                </GridArea>
-                <GridArea middle reverse>
-                    {gridItems?.middleBottom?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            plugin={p}
-                        />
-                    )
-                    )}
-                </GridArea>
+                {gridItems?.middle?.map(item => (
+                    item.map(i => (
+                        <GridArea key={i.position} left position={i.position}>
+                            {i.widgets.map(w => (
+                                <GridItem key={w.id} widget={w} />
+                            ))}
+                        </GridArea>
+                    ))
+
+                ))}
             </GridSection>
 
             {/* Right */}
             <GridSection bottom>
-                <GridArea>
+                {gridItems?.right?.map(item => (
+                    item.map(i => (
+                        <GridArea key={i.position} left position={i.position}>
+                            {i.widgets.map(w => (
+                                <GridItem key={w.id} widget={w} />
+                            ))}
+                        </GridArea>
+                    ))
+
+                ))}
+                {/* <GridArea>
                     {gridItems?.rightTop?.map(p => (
                         <GridItem
                             key={p?.id}
-                            plugin={p}
+                            widget={p}
                         />
                     )
                     )}
@@ -83,7 +68,7 @@ const GridWrapper: React.FC<Props> = () => {
                     {gridItems?.rightCenter?.map(p => (
                         <GridItem
                             key={p?.id}
-                            plugin={p}
+                            widget={p}
                         />
                     )
                     )}
@@ -92,11 +77,11 @@ const GridWrapper: React.FC<Props> = () => {
                     {gridItems?.rightBottom?.map(p => (
                         <GridItem
                             key={p?.id}
-                            plugin={p}
+                            widget={p}
                         />
                     )
                     )}
-                </GridArea>
+                </GridArea> */}
             </GridSection>
         </GlobalWrapper>
     )

@@ -7,6 +7,8 @@ export type Props = {
     middle?: boolean;
     end?: boolean;
     reverse?: boolean;
+    left?: boolean;
+    position?: string;
 }
 
 const GridArea: React.FC<Props> = ({
@@ -15,7 +17,9 @@ const GridArea: React.FC<Props> = ({
     middle,
     end,
     reverse,
-    children
+    children,
+    left,
+    position
 }) => (
     <Wrapper
         className={className}
@@ -23,6 +27,8 @@ const GridArea: React.FC<Props> = ({
         middle={middle}
         end={end}
         reverse={reverse}
+        left={left}
+        position={position}
     >
         {children}
     </Wrapper>
@@ -30,15 +36,16 @@ const GridArea: React.FC<Props> = ({
 
 export default GridArea;
 
-const Wrapper = styled.div<{ horizontal?: boolean, middle?: boolean, end?: boolean, reverse?: boolean }>`
+const Wrapper = styled.div<{ horizontal?: boolean, middle?: boolean, end?: boolean, reverse?: boolean, left?: boolean, position?: string }>`
     width: 100%;
     min-height: inherit;
     // min-height:20px; // could add a editor mode prop that add min-height
     border: 1px solid red;
     display: flex;
     flex: 1;
-    ${({ middle }) => middle && "flex-grow: 0;"}
+    ${({ position, left }) => position === "center" && "flex-grow: 0;"}
     // flex-wrap: wrap;
-    justify-content: ${({ end, middle }) => end ? "end" : middle ? "center" : "start"};
-    flex-direction: ${({ horizontal, reverse }) => horizontal ? reverse ? "row-reverse" : "row" : reverse ? "column-reverse" : "column"}
+    justify-content: ${({ position }) => position === "bottom" ? "end" : position === "center" ? "center" : "start"};
+    flex-direction: ${({ horizontal, position }) =>
+        horizontal ? position === "bottom" ? "row-reverse" : "row" : position === "bottom" ? "column-reverse" : "column"}
 `;

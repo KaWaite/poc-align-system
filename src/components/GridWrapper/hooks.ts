@@ -1,6 +1,6 @@
 import mockdata from "../../mockdata.json";
 
-export type Plugin = {
+export type Widget = {
     id: string;
     name?: string;
     minHeight?: number;
@@ -10,83 +10,62 @@ export type Plugin = {
     expanded?: boolean;
 };
 
-export type PluginData = Plugin[];
+export type WidgetData = Widget[];
+
+export type LayoutArea = {
+    position?: string;
+    widgets?: string[];
+    align?: string; // "start" | "end" | "centered" | "expanded";
+}
 
 export type LayoutData = {
-    left?: {
-        top?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        center?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottom?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        }
-    },
-    middle?: {
-        top?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottom?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        }
-    },
-    right?: {
-        top?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        center?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        },
-        bottom?: {
-            widgets?: string[];
-            align?: string; // "start" | "end" | "centered" | "expanded";
-        }
-    },
+    left?: LayoutArea[],
+    middle?: LayoutArea[],
+    right?: LayoutArea[],
 
 };
 
 export default () => {
 
-    const filterGridItems = (plugins: PluginData, layout: LayoutData) => {
-        if (!plugins || !layout) return {};
+    const filterGridItems = (widgets: WidgetData, layout: LayoutData) => {
+        if (!widgets || !layout) return {};
 
-        const leftTop = layout.left?.top?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const leftCenter = layout.left?.center?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const leftBottom = layout.left?.bottom?.widgets?.map(
-            w => plugins.find(p => w === p.id));
+        const handleWidgetInsertion = (gridAreas?: LayoutArea[]) => {
+            if (!gridAreas) return undefined;
 
-        const middleTop = layout.middle?.top?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const middleBottom = layout.middle?.bottom?.widgets?.map(
-            w => plugins.find(p => w === p.id));
+            return gridAreas.map(a => {
+                const expanded: Widget[] = [];
+                const filteredWidgets = widgets.filter(
+                    w => a.widgets?.find(w2 => {
+                        if (w.id === w2) {
+                            if (w.expanded) {
+                                expanded.push(w)
+                                return false;
+                            };
+                            return true;
+                        }
+                        return false;
+                    })
+                );
+                return [
+                    {
+                        position: a.position,
+                        align: a.align,
+                        widgets: filteredWidgets,
+                        expanded,
+                    }
+                ]
+            });
+        };
 
-        const rightTop = layout.right?.top?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const rightCenter = layout.right?.center?.widgets?.map(
-            w => plugins.find(p => w === p.id));
-        const rightBottom = layout.right?.bottom?.widgets?.map(
-            w => plugins.find(p => w === p.id));
+        const left = handleWidgetInsertion(layout?.left);
+        const middle = handleWidgetInsertion(layout?.middle);
+        const right = handleWidgetInsertion(layout?.right);
 
         return {
-            leftTop,
-            leftCenter,
-            leftBottom,
-            middleTop,
-            middleBottom,
-            rightTop,
-            rightCenter,
-            rightBottom,
+            left,
+            middle,
+            right,
         }
 
     };
