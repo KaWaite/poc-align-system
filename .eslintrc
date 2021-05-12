@@ -19,6 +19,7 @@
             }
         }
     },
+    "code": 100,
     "rules": {
         "object-curly-spacing": [
             "warn",
@@ -41,14 +42,7 @@
             }
         ],
         "jsx-a11y/no-noninteractive-element-interactions": "off",
-        "max-len": [
-            "warn",
-            {
-                "ignoreStrings": true,
-                "ignoreTemplateLiterals": true,
-                "ignoreComments": true
-            }
-        ],
+        "max-len": "off",
         "no-plusplus": [
             "error",
             {

@@ -12,7 +12,7 @@ export type Props = {}
 
 const GridWrapper: React.FC<Props> = () => {
     const { gridItems } = useHooks();
-    console.log(gridItems)
+
     return (
         <Wrapper bg={background}>
             {/* Left */}

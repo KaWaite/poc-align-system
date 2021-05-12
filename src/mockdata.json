@@ -78,7 +78,8 @@
             "minHeight": 140,
             "maxHeight": 100,
             "minWidth": 280,
-            "maxWidth": 220
+            "maxWidth": 220,
+            "expanded": false
         },
         {
             "id": "3",
@@ -86,7 +87,8 @@
             "minHeight": 14,
             "maxHeight": 100,
             "minWidth": 50,
-            "maxWidth": 80
+            "maxWidth": 80,
+            "expanded": false
         },
         {
             "id": "4",
@@ -94,7 +96,8 @@
             "minHeight": 40,
             "maxHeight": 100,
             "minWidth": 20,
-            "maxWidth": 50
+            "maxWidth": 50,
+            "expanded": false
         },
         {
             "id": "5",
@@ -102,7 +105,8 @@
             "minHeight": 10,
             "maxHeight": 100,
             "minWidth": 50,
-            "maxWidth": 100
+            "maxWidth": 100,
+            "expanded": false
         },
         {
             "id": "6",
@@ -119,7 +123,8 @@
             "minHeight": 34,
             "maxHeight": 100,
             "minWidth": 67,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "8",
@@ -127,7 +132,8 @@
             "minHeight": 99,
             "maxHeight": 100,
             "minWidth": 99,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "9",
@@ -135,7 +141,8 @@
             "minHeight": 120,
             "maxHeight": 160,
             "minWidth": 370,
-            "maxWidth": 215
+            "maxWidth": 215,
+            "expanded": false
         },
         {
             "id": "10",
@@ -143,7 +150,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "11",
@@ -151,7 +159,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "12",
@@ -159,7 +168,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "13",
@@ -167,7 +177,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "14",
@@ -175,7 +186,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "15",
@@ -183,7 +195,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "16",
@@ -191,7 +204,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "17",
@@ -199,7 +213,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "18",
@@ -207,7 +222,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "19",
@@ -215,7 +231,8 @@
             "minHeight": 20,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         },
         {
             "id": "20",
@@ -223,7 +240,8 @@
             "minHeight": 390,
             "maxHeight": 80,
             "minWidth": 60,
-            "maxWidth": 115
+            "maxWidth": 115,
+            "expanded": false
         }
     ]
 }
