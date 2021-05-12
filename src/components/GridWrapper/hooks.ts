@@ -30,42 +30,45 @@ export default () => {
     const filterGridItems = (widgets: WidgetData, layout: LayoutData) => {
         if (!widgets || !layout) return {};
 
-        const handleWidgetInsertion = (gridAreas?: LayoutArea[]) => {
-            if (!gridAreas) return undefined;
+        const expanded: { [area: string]: Widget[] }
+            = { left: [], top: [], bottom: [], right: [] };
 
-            return gridAreas.map(a => {
-                const expanded: Widget[] = [];
-                const filteredWidgets = widgets.filter(
-                    w => a.widgets?.find(w2 => {
-                        if (w.id === w2) {
-                            if (w.expanded) {
-                                expanded.push(w)
-                                return false;
-                            };
-                            return true;
+        const handleWidgetInsertion =
+            (gridAreas?: LayoutArea[], area?: string) => {
+                if (!gridAreas) return undefined;
+
+                return gridAreas.map(a => {
+                    // const expanded: Widget[] = [];
+                    const filteredWidgets = widgets.filter(
+                        w => a.widgets?.find(w2 => {
+                            if (w.id === w2) {
+                                if (w.expanded && a.position) {
+                                    area && area !== "middle" ? expanded[area].push(w) : expanded[a.position].push(w)
+                                    return false;
+                                };
+                                return true;
+                            }
+                            return false;
+                        })
+                    );
+                    return [
+                        {
+                            position: a.position,
+                            align: a.align,
+                            widgets: filteredWidgets,
                         }
-                        return false;
-                    })
-                );
-                return [
-                    {
-                        position: a.position,
-                        align: a.align,
-                        widgets: filteredWidgets,
-                        expanded,
-                    }
-                ]
-            });
-        };
-
-        const left = handleWidgetInsertion(layout?.left);
-        const middle = handleWidgetInsertion(layout?.middle);
-        const right = handleWidgetInsertion(layout?.right);
+                    ]
+                });
+            };
+        const left = handleWidgetInsertion(layout?.left, "left");
+        const middle = handleWidgetInsertion(layout?.middle, "middle");
+        const right = handleWidgetInsertion(layout?.right, "right");
 
         return {
             left,
             middle,
             right,
+            expanded
         }
 
     };

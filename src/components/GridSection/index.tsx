@@ -4,23 +4,30 @@ import styled from "styled-components";
 export type Props = {
     middle?: boolean;
     bottom?: boolean;
+    expanded?: boolean;
 }
 
-const GridSection: React.FC<Props> = ({ middle, bottom, children }) => (
-    <Wrapper middle={middle} bottom={bottom}>
+const GridSection: React.FC<Props> = ({
+    middle,
+    bottom,
+    children,
+    expanded
+}) => (
+    <Wrapper middle={middle} bottom={bottom} expanded={expanded}>
         {children}
     </Wrapper>
 )
 
 export default GridSection
 
-const Wrapper = styled.div<{ middle?: boolean, bottom?: boolean }>`
+// width: ${({ expanded, children }) => !children ? "0" : expanded ? "6em" : "20em"};
+const Wrapper = styled.div<{ middle?: boolean, bottom?: boolean, expanded?: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30em;
+  min-width: 105px;
   ${({ middle }) => !middle && "flex-grow: 0;"}
   ${({ middle }) => middle && "flex: auto;"}
-  padding:10px;
-//   border: 1px solid white;
+//   padding:10px;
+  border: 1px solid white;
   `;

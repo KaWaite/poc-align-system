@@ -4,9 +4,6 @@ import styled from "styled-components";
 export type Props = {
     className?: string;
     horizontal?: boolean;
-    middle?: boolean;
-    end?: boolean;
-    reverse?: boolean;
     left?: boolean;
     position?: string;
 }
@@ -14,9 +11,6 @@ export type Props = {
 const GridArea: React.FC<Props> = ({
     className,
     horizontal,
-    middle,
-    end,
-    reverse,
     children,
     left,
     position
@@ -24,9 +18,6 @@ const GridArea: React.FC<Props> = ({
     <Wrapper
         className={className}
         horizontal={horizontal}
-        middle={middle}
-        end={end}
-        reverse={reverse}
         left={left}
         position={position}
     >
@@ -36,7 +27,7 @@ const GridArea: React.FC<Props> = ({
 
 export default GridArea;
 
-const Wrapper = styled.div<{ horizontal?: boolean, middle?: boolean, end?: boolean, reverse?: boolean, left?: boolean, position?: string }>`
+const Wrapper = styled.div<{ horizontal?: boolean, left?: boolean, position?: string }>`
     width: 100%;
     min-height: inherit;
     // min-height:20px; // could add a editor mode prop that add min-height

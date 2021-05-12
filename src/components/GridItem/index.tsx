@@ -5,10 +5,15 @@ import { Widget } from "../GridWrapper/hooks";
 export type Props = {
     className?: string;
     widget?: Widget;
+    expanded?: boolean;
 }
 
-const GridItem: React.FC<Props> = ({ className, children, widget }) =>
-    <ItemComponent className={className} dimensions={widget}>
+const GridItem: React.FC<Props> = ({ className, children, widget, expanded }) =>
+    <ItemComponent
+        className={className}
+        dimensions={widget}
+        expanded={expanded}
+    >
         <p>{widget?.name}</p>
         {children}
     </ItemComponent>
@@ -17,9 +22,9 @@ const GridItem: React.FC<Props> = ({ className, children, widget }) =>
 
 export default GridItem;
 
-const ItemComponent = styled.div<{ dimensions?: Widget }>`
+const ItemComponent = styled.div<{ dimensions?: Widget, expanded?: boolean }>`
     width: 100%;
-    height: 75px;
+    height: ${({ expanded }) => expanded ? "100%" : "75px"};
     // margin-bottom: 10px;
     border: 1px solid green;
     background: #3B3CD0;

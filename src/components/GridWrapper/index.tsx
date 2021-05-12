@@ -14,82 +14,80 @@ const GridWrapper: React.FC<Props> = () => {
     const { gridItems } = useHooks();
     console.log(gridItems)
     return (
-        <GlobalWrapper bg={background}>
+        <Wrapper bg={background}>
             {/* Left */}
-            <GridSection>
-                {gridItems?.left?.map(item => (
-                    item.map(i => (
-                        <GridArea key={i.position} left position={i.position}>
-                            {i.widgets.map(w => (
-                                <GridItem key={w.id} widget={w} />
-                            ))}
-                        </GridArea>
-                    ))
-
+            {gridItems?.expanded?.left.map(w => (
+                <GridSection key={w.id} expanded>
+                    <GridItem widget={w} expanded />
+                </GridSection>
+            ))}
+            <SecondaryWrapper vertical>
+                {gridItems?.expanded?.top.map(w => (
+                    <GridSection key={w.id} expanded>
+                        <GridItem widget={w} expanded />
+                    </GridSection>
                 ))}
-            </GridSection>
+                <SecondaryWrapper>
+                    <GridSection>
+                        {gridItems?.left?.map(item => (
+                            item.map(i => (
+                                <GridArea key={i.position} left position={i.position}>
+                                    {i.widgets.map(w => (
+                                        <GridItem key={w.id} widget={w} />
+                                    ))}
+                                </GridArea>
+                            ))
 
-            {/* Middle */}
-            <GridSection middle>
-                {gridItems?.middle?.map(item => (
-                    item.map(i => (
-                        <GridArea key={i.position} left position={i.position}>
-                            {i.widgets.map(w => (
-                                <GridItem key={w.id} widget={w} />
-                            ))}
-                        </GridArea>
-                    ))
+                        ))}
+                    </GridSection>
 
+                    {/* Middle */}
+                    <GridSection middle>
+                        {gridItems?.middle?.map(item => (
+                            item.map(i => (
+                                <GridArea key={i.position} left position={i.position}>
+                                    {i.widgets.map(w => (
+                                        <GridItem key={w.id} widget={w} />
+                                    ))}
+                                </GridArea>
+                            ))
+
+                        ))}
+                    </GridSection>
+
+                    {/* Right */}
+                    <GridSection bottom>
+                        {gridItems?.right?.map(item => (
+                            item.map(i => (
+                                <GridArea key={i.position} left position={i.position}>
+                                    {i.widgets.map(w => (
+                                        <GridItem key={w.id} widget={w} />
+                                    ))}
+                                </GridArea>
+                            ))
+
+                        ))}
+                    </GridSection>
+                </SecondaryWrapper>
+                {gridItems?.expanded?.bottom.map(w => (
+                    <GridSection key={w.id} expanded>
+                        <GridItem widget={w} expanded />
+                    </GridSection>
                 ))}
-            </GridSection>
 
-            {/* Right */}
-            <GridSection bottom>
-                {gridItems?.right?.map(item => (
-                    item.map(i => (
-                        <GridArea key={i.position} left position={i.position}>
-                            {i.widgets.map(w => (
-                                <GridItem key={w.id} widget={w} />
-                            ))}
-                        </GridArea>
-                    ))
-
-                ))}
-                {/* <GridArea>
-                    {gridItems?.rightTop?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            widget={p}
-                        />
-                    )
-                    )}
-                </GridArea>
-                <GridArea middle>
-                    {gridItems?.rightCenter?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            widget={p}
-                        />
-                    )
-                    )}
-                </GridArea>
-                <GridArea reverse end>
-                    {gridItems?.rightBottom?.map(p => (
-                        <GridItem
-                            key={p?.id}
-                            widget={p}
-                        />
-                    )
-                    )}
-                </GridArea> */}
-            </GridSection>
-        </GlobalWrapper>
+            </SecondaryWrapper>
+            {gridItems?.expanded?.right.map(w => (
+                <GridSection key={w.id} expanded>
+                    <GridItem widget={w} expanded />
+                </GridSection>
+            ))}
+        </Wrapper>
     )
 }
 
 export default GridWrapper;
 
-const GlobalWrapper = styled.div<{ bg?: string }>`
+const Wrapper = styled.div<{ bg?: string, vertical?: boolean }>`
     background: #171618;
     background-image: ${({ bg }) => `url(${bg})`};
     height: 100%;
@@ -97,4 +95,11 @@ const GlobalWrapper = styled.div<{ bg?: string }>`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    `;
+
+const SecondaryWrapper = styled.div<{ bg?: string, vertical?: boolean, full?: boolean }>`
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: ${({ vertical }) => vertical ? "column" : "row"};
     `;
