@@ -9,7 +9,7 @@ export type Props = {
 }
 
 const GridWrapper: React.FC<Props> = ({ vertical, children }) => (
-    <Wrapper bg={background}>
+    <Wrapper bg={background} vertical={vertical}>
         {children}
     </Wrapper>
 )
@@ -17,7 +17,6 @@ const GridWrapper: React.FC<Props> = ({ vertical, children }) => (
 export default GridWrapper;
 
 const Wrapper = styled.div<{ bg?: string, vertical?: boolean }>`
-    // background: #171618;
     background-image: ${({ bg }) => `url(${bg})`};
     height: 100%;
     width: 100%;
