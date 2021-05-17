@@ -25,7 +25,7 @@ const Wrapper = styled.div<{ middle?: boolean, bottom?: boolean, expanded?: bool
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 105px;
+  min-width: 120px;
   ${({ middle }) => !middle && "flex-grow: 0;"}
   ${({ middle }) => middle && "flex: auto;"}
 //   padding:10px;

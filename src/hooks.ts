@@ -1,4 +1,4 @@
-import mockdata from "../../mockdata.json";
+import mockdata from "./mockdata.json";
 
 export type Widget = {
     id: string;

@@ -19,7 +19,6 @@
             }
         }
     },
-    "code": 100,
     "rules": {
         "object-curly-spacing": [
             "warn",
