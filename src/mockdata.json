@@ -4,21 +4,17 @@
             {
                 "position": "top",
                 "widgets": [
-                    "7"
-                ]
-            },
-            {
-                "position": "center",
-                "widgets": [
-                    "3",
-                    "6"
+                    "7",
+                    "15",
+                    "16",
+                    "17"
                 ]
             },
             {
                 "position": "bottom",
                 "widgets": [
                     "9",
-                    "10"
+                    "14"
                 ]
             }
         ],
@@ -43,14 +39,6 @@
                 "position": "top",
                 "widgets": [
                     "20"
-                ]
-            },
-            {
-                "position": "center",
-                "widgets": [
-                    "3",
-                    "4",
-                    "5"
                 ]
             },
             {
@@ -187,7 +175,7 @@
             "maxHeight": 80,
             "minWidth": 60,
             "maxWidth": 115,
-            "expanded": false
+            "expanded": true
         },
         {
             "id": "15",
